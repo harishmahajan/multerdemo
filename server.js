@@ -6,7 +6,6 @@ var storage =   multer.diskStorage({
     callback(null, './uploads');
   },
   filename: function (req, file, callback) {
-    //   console.log("file.fieldname ",file);
     callback(null,  Date.now()+ "_" +file.originalname);
   }
 });
@@ -17,7 +16,6 @@ app.get('/',function(req,res){
 });
 
 app.post('/api/photo',function(req,res){
-    // console.log(req);
     upload(req,res,function(err) {
         if(err) {
             return res.end("Error uploading file.");
